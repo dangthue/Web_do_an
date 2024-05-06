@@ -43,7 +43,7 @@ namespace Web_Đồ_An.Controllers
 			return View(carts);
 		}
 /*        [Route("ShopCart/Add/{id}")]
-*/        public IActionResult Add(int id)
+*/        public IActionResult Add(int id )
 		{
 			if (carts.Any(c => c.ProductId == id))
 			{

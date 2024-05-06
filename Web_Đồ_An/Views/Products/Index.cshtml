@@ -27,8 +27,8 @@
 					<div class="sidebar_title">
 						<h5>Danh sách loại </h5>
 					</div>
-@*					<vc:MenuProduct MenuProduct></vc:MenuProduct>
-*@					@await Component.InvokeAsync("MenuProduct")
+					@*					<vc:MenuProduct MenuProduct></vc:MenuProduct>
+					*@					@await Component.InvokeAsync("MenuProduct")
 
 
 				</div>
@@ -91,12 +91,10 @@
 							<div class="product-grid" style="position: relative; height: 1140px;">
 
 								<!-- Product 1 -->
-							@if (Model != null && Model.Any())
+								@if (Model != null && Model.Any())
 								{
-									foreach (var item in Model)
+									@foreach (var item in Model)
 									{
-										
-
 										<div class="product-item @item.ProductCategory.Alias">
 											<div class="product discount product_filter">
 												<div class="product_image">
@@ -109,7 +107,8 @@
 												}
 												<div class="product_info">
 													<h6 class="product_name">
-														<a href="~/Products/Detail/@item.ProductId">@item.Title</a></h6>
+														<a href="~/Products/Detail/@item.ProductId">@item.Title</a>
+													</h6>
 													<h6 class="product_name">Danh mục :@item.ProductCategory.Title </h6>
 
 													@if (item.PriceSale > 0)
@@ -126,13 +125,13 @@
 											</div>
 											<div class="red_button add_to_cart_button">
 
-												
-@*												<a href="/shopcart/add/?id=@item.ProductId" data-id="@item.ProductId"><i class="fi fi-bs-shopping-bag"> Mua hàng</i></a>
-*@												@*<a asp-controller="ShopCart" asp-action="Add" asp-route-id="@item.ProductId">
-													<i class="fi fi-bs-shopping-bag"> Mua hàng</i>
-												</a>*@
 
-												<a href="~/shopcart/add/?id=@item.ProductId" data-id="@item.ProductId" class="fi fi-bs-shopping-bag">Mua</a>
+												@*												<a href="/shopcart/add/?id=@item.ProductId" data-id="@item.ProductId"><i class="fi fi-bs-shopping-bag"> Mua hàng</i></a>
+										*@												@*<a asp-controller="ShopCart" asp-action="Add" asp-route-id="@item.ProductId">
+										<i class="fi fi-bs-shopping-bag"> Mua hàng</i>
+										</a>*@
+
+												<a asp-controller="ShopCart" asp-action="Add" asp-route-id="@item.ProductId" class="fi fi-bs-shopping-bag">Mua</a>
 
 											</div>
 										</div>
@@ -183,6 +182,6 @@
 </div>
 
 @section scripts{
-    <script src="~/Content/assets/js/categories_custom.js"></script>
+	<script src="~/Content/assets/js/categories_custom.js"></script>
 	<script src="~/content/assets/js/jquery-3.2.1.min.js"></script>
 }

@@ -33,9 +33,8 @@
 			
 			
 				<div class="red_button add_to_cart_button">
-				<a asp-controller="Cart" asp-action="Add" asp-route-id="@item.ProductId">
-					<i class="fi fi-bs-shopping-bag"> Mua hàng</i>
-				</a>
+				<a asp-controller="ShopCart" asp-action="Add" asp-route-id="@item.ProductId" class="fi fi-bs-shopping-bag">Mua</a>
+
 			</div>
 	
 		</div>
